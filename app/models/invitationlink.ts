@@ -1,15 +1,18 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
 
-export default class Department extends BaseModel {
+export default class Invitationlink extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare name: string
+  declare identifier: string
 
   @column()
-  declare address: string
+  declare issuedUser: number
+
+  @column()
+  declare expired: boolean
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

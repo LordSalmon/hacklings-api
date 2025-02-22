@@ -1,13 +1,13 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@adonisjs/lucid/orm'
-import {Blockertyp} from "../blocker/blockertyp.js";
+import {BLOCKER_TYPE} from "../blocker/blocker_type.js";
 
 export default class Blocker extends BaseModel {
   @column({ isPrimary: true })
   declare id: number
 
   @column()
-  declare blockertyp: Blockertyp
+  declare blockertyp: BLOCKER_TYPE
 
   @column.dateTime()
   declare startTime: DateTime

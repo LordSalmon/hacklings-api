@@ -8,8 +8,8 @@ import {HttpContext} from "@adonisjs/core/http";
 
 export default class BlockersController {
 
-  /*create(context: HttpContext) {
-
-  }*/
+  create(context: HttpContext) {
+    context.request.body();
+  }
 
 }

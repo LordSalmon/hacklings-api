@@ -9,18 +9,17 @@ export default class AuthController {
         const user = await User.findBy('email', email);
 
         if (user === null) {
-            return response.notFound('user_not_found')
+            return response.badRequest()
         }
-
+        
         if (await hash.verify(user.password, password)) {
-            const token = await User.accessTokens.create(user)
+            const accessToken = await User.accessTokens.create(user)
 
-            response.cookie('api', token.value!.release(), {
+            response.cookie('api', accessToken.value!.release(), {
                 httpOnly: true
             })
-            return response.ok(user)
+            return response.ok(accessToken.value!.release())
         }
-
-        return response.badGateway()
+        return response.badRequest()
     }
 }

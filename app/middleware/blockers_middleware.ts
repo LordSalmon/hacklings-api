@@ -3,7 +3,7 @@ import type { NextFn } from '@adonisjs/core/types/http'
 
 export default class BlockersMiddleware {
   async handle(ctx: HttpContext, next: NextFn) {
-    const allow_fields: string[] = ["id", "start", "end"];
+    const allow_fields: string[] = ["type", "start", "end"];
     const json: any = ctx.request.body();
 
     if (!allow_fields.every(field => field in json)) {

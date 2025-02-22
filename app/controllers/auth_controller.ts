@@ -4,7 +4,7 @@ import hash from '@adonisjs/core/services/hash';
 
 export default class AuthController {
 
-    async issueToken({ request, response, auth }: HttpContext) {
+    async issueToken({ request, response }: HttpContext) {
         const { email, password } = request.all()
         const user = await User.findBy('email', email);
 
@@ -18,7 +18,7 @@ export default class AuthController {
             response.cookie('api', accessToken.value!.release(), {
                 httpOnly: true
             })
-            return response.ok(accessToken.value!.release())
+            return response.status(200)
         }
         return response.badRequest()
     }

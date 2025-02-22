@@ -31,6 +31,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @column()
   declare departmentId: number
 
+  @column()
+  declare role: number
+
   @belongsTo(() => Department)
   declare department: BelongsTo<typeof Department>
 

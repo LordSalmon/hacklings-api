@@ -1,8 +1,9 @@
 # Adonis default .gitignore ignores
-node_modules
-build
-coverage
-.vscode
-.DS_STORE
-.env
-tmp
+node_modules/
+.git/
+.vscode/
+.docker/
+.dockerignore
+.gitignore
+.node-version
+docker-compose.yml
